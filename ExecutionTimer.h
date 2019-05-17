@@ -1,6 +1,26 @@
 // ExecutionTimer.h
 // original code by Code Blacksmith on Youtube
 // https://www.youtube.com/watch?v=GV0JMHOpoEw
+// This code cleverly and accurately times execution simply 
+// by it's construction and destruction. It's easy to use on any
+// segment of code by simply wrapping the code in braces to control 
+// it's lifetime scope.
+// For example, you want to time the call to GetData() in this code:
+//
+//  DoSomething();
+//  GetData();
+//  DoSomethingElse();
+//
+// Simply change it to:
+// 
+//  DoSomething();
+//  {
+//    ExecutionTimer t;
+//    GetData();
+//  }
+//  DoSomethingElse();
+// 
+
 #pragma once
 
 #include "stdafx.h"  // remove if not needed
